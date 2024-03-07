@@ -1,14 +1,14 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { Product } from '../../shared/models/product';
-import { Brand } from '../../shared/models/brand';
-import { Type } from '../../shared/models/type';
-import { ShopParams } from '../../shared/models/shopParams';
-import { ShopService } from '../shopservice/shop.service';
+import { Product } from '../shared/models/product';
+import { Brand } from '../shared/models/brand';
+import { Type } from '../shared/models/type';
+import { ShopParams } from '../shared/models/shopParams';
+import { ShopService } from './shopservice/shop.service';
 
 @Component({
   selector: 'app-shop',
   templateUrl: './shop.component.html',
-  styleUrl: './shop.component.css'
+  styleUrl: 'shop.component.css'
 })
 export class ShopComponent {
   @ViewChild('search') searchTerm?: ElementRef;
@@ -16,7 +16,7 @@ export class ShopComponent {
   brands: Brand[] = [];
   types: Type[] = [];
 
-  shopParams!: ShopParams;
+  shopParams: ShopParams;
   sortOptions = [
     {name: 'Alphabetical', value: 'name'},
     {name: 'Price: Low to high', value: 'priceAsc'},
