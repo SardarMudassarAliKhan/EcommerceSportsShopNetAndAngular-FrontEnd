@@ -4,6 +4,7 @@ import { PagerComponent } from './pager/pager.component';
 import { PagingHeaderComponent } from './paging-header/paging-header.component';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -12,14 +13,16 @@ import { FormsModule } from '@angular/forms';
     PagingHeaderComponent
   ],
   imports: [
-    CommonModule,
     PaginationModule.forRoot(),
+    CommonModule,
+    RouterModule,
     FormsModule
   ],
   exports: [
+    PaginationModule,
     PagerComponent,
-    PagingHeaderComponent,
-    PaginationModule]
+    PagingHeaderComponent
+  ]
 
 })
 export class SharedModule { }

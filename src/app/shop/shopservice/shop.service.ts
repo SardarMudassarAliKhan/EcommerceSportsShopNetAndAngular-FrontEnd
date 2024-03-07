@@ -41,6 +41,12 @@ export class ShopService {
     )
   }
 
+  getProduct(id: number) {
+    const product = this.products.find(p => p.id === id);
+    if (product !== undefined) return of(product);
+    return this.http.get<Product>(this.baseUrl + 'products/' + id);
+  }
+
   setShopParams(params: ShopParams) {
     this.shopParams = params;
   }
