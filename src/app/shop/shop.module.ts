@@ -7,6 +7,7 @@ import { CoreModule } from '../core/core.module';
 import { ProductItemComponent } from './product-item/product-item.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ShopRoutingModule } from './shop-routing.module';
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     ShopComponent,
@@ -14,6 +15,7 @@ import { ShopRoutingModule } from './shop-routing.module';
     ProductDetailsComponent,
   ],
   imports: [
+    RouterModule,
     CommonModule,
     HttpClientModule,
     SharedModule,

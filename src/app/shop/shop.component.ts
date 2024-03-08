@@ -36,7 +36,10 @@ export class ShopComponent {
   getProducts()
   {
     this.shopService.getProducts().subscribe({
-      next: (response) => this.products = response.data,
+      next: (response) =>{
+        this.products = response?.data;
+        this.totalCount = response?.count;
+      },
       error: (error) => console.log(error)
     })
   }
@@ -58,7 +61,7 @@ export class ShopComponent {
   onBrandSelected(brandId: number) {
     const params = this.shopService.getShopParams();
     params.brandId = brandId;
-    params.pageNumber = 1;
+    params.pageIndex = 1;
     this.shopService.setShopParams(params);
     this.shopParams = params;
     this.getProducts();
@@ -67,13 +70,14 @@ export class ShopComponent {
   onTypeSelected(typeId: number) {
     const params = this.shopService.getShopParams();
     params.typeId = typeId;
-    params.pageNumber = 1;
+    params.pageIndex = 1;
     this.shopService.setShopParams(params);
     this.shopParams = params;
     this.getProducts();
   }
 
   onSortSelected(event: any) {
+    debugger;
     const params = this.shopService.getShopParams();
     params.sort = event.target.value;
     this.shopService.setShopParams(params);
@@ -82,9 +86,10 @@ export class ShopComponent {
   }
 
   onPageChanged(event: any) {
+    debugger;
     const params = this.shopService.getShopParams();
-    if (params.pageNumber !== event) {
-      params.pageNumber = event;
+    if (params.pageIndex !== event) {
+      params.pageIndex = event;
       this.shopService.setShopParams(params);
       this.shopParams = params;
       this.getProducts();
@@ -94,7 +99,7 @@ export class ShopComponent {
   onSearch() {
     const params = this.shopService.getShopParams();
     params.search = this.searchTerm?.nativeElement.value;
-    params.pageNumber = 1;
+    params.pageIndex = 1;
     this.shopService.setShopParams(params);
     this.shopParams = params;
     this.getProducts();

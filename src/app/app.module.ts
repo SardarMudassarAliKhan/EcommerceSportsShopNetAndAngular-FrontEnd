@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeModule } from './home/home.module';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
+import { ShopModule } from './shop/shop.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AppRoutingModule } from './app-routing.module';
     RouterModule,
     HttpClientModule,
     AppRoutingModule,
-    HomeModule
+    HomeModule,
+    ShopModule
   ],
   providers: [
     provideClientHydration()
