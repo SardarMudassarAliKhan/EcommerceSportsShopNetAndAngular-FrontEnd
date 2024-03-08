@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
-import { map, of } from 'rxjs';
+import { Observable, map, of } from 'rxjs';
 import { Product } from '../../shared/models/product';
 import { Brand } from '../../shared/models/brand';
 import { Type } from '../../shared/models/type';
@@ -22,19 +22,19 @@ export class ShopService {
 
   constructor(private http: HttpClient) { }
 
-  getProducts(){
+  getProducts() :  Observable<Pagination<Product[]>>{
+    debugger;
     let params = new HttpParams();
 
     if (this.shopParams.brandId > 0) params = params.append('brandId', this.shopParams.brandId);
     if (this.shopParams.typeId) params = params.append('typeId', this.shopParams.typeId);
     params = params.append('sort', this.shopParams.sort);
-    params = params.append('pageIndex', this.shopParams.pageNumber);
+    params = params.append('pageIndex', this.shopParams.pageIndex);
     params = params.append('pageSize', this.shopParams.pageSize);
     if (this.shopParams.search) params = params.append('search', this.shopParams.search);
 
     return this.http.get<Pagination<Product[]>>(this.baseUrl + 'products', {params}).pipe(
       map(response => {
-        //this.productCache.set(Object.values(this.shopParams).join('-'), response)
         this.pagination = response;
         return response;
       })
@@ -57,7 +57,6 @@ export class ShopService {
 
   getBrands() {
     if (this.brands.length > 0) return of(this.brands);
-
     return this.http.get<Brand[]>(this.baseUrl + 'Products/brands').pipe(
       map(brands => this.brands = brands)
     );
@@ -65,7 +64,6 @@ export class ShopService {
 
   getTypes() {
     if (this.types.length > 0) return of(this.types);
-
     return this.http.get<Type[]>(this.baseUrl + 'Products/types').pipe(
       map(types => this.types = types)
     );
