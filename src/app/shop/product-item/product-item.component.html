@@ -11,7 +11,7 @@
       <p class="card-text">{{product.price | currency}}</p>
       <div class="d-flex justify-content-between align-items-center">
         <div class="btn-group">
-          <button type="button" class="btn btn-primary">View</button>
+          <button type="button" routerLink="/shop/{{product.id}}" class="btn btn-primary">View</button>
           <button type="button" class="btn btn-warning">Add to Busket</button>
         </div>
         <small class="text-body-secondary">9 mins</small>
