@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home/home.component';
 import { ShopComponent } from './shop/shop.component';
+import { TestErrorComponent } from './core/test-error/test-error.component';
 
 const routes: Routes = [
  {
@@ -17,6 +18,10 @@ const routes: Routes = [
     path: '**',
     redirectTo: 'home',
     pathMatch: 'full'
+  },
+  {
+    path: 'test-error',
+    component: TestErrorComponent
   }
 ];
 
