@@ -7,6 +7,7 @@ import { Brand } from '../../shared/models/brand';
 import { Type } from '../../shared/models/type';
 import { Pagination } from '../../shared/models/pagination';
 import { ShopParams } from '../../shared/models/shopParams';
+import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Injectable({
   providedIn: 'root'

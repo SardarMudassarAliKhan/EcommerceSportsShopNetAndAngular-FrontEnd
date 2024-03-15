@@ -10,4 +10,9 @@ export class ProductItemComponent {
   @Input() product?: Product;
 
   constructor() {}
+
+  addItemToBasket()
+  {
+    console.log('Add to basket clicked');
+  }
 }
