@@ -15,13 +15,14 @@ const routes: Routes = [
     data: {breadcrumb: 'Shop'}
   },
   {
+    path: 'core',
+    loadChildren: () => import('./core/core.module').then(mod => mod.CoreModule),
+    data: {breadcrumb: 'Core'}
+  },
+  {
     path: '**',
     redirectTo: 'home',
     pathMatch: 'full'
-  },
-  {
-    path: 'test-error',
-    component: TestErrorComponent
   }
 ];
 

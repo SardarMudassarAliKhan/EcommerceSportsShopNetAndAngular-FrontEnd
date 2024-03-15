@@ -1,21 +1,20 @@
-<div class="col" *ngIf="product"  >
-  <div class="card shadow-sm">
-    <img class="bd-placeholder-img card-img-top"
-    width="100%" height="225" src="{{product.pictureUrl}}"
-    role="img" aria-label="Placeholder: Thumbnail"
-    preserveAspectRatio="xMidYMid slice"
-    focusable="false"
-    class="image-fluid bg-info" />
-    <div class="card-body">
-      <h5 class="text-warning">{{product.name}}</h5>
-      <p class="card-text">{{product.price | currency}}</p>
-      <div class="d-flex justify-content-between align-items-center">
-        <div class="btn-group">
-          <button type="button" routerLink="/shop/{{product.id}}" class="btn btn-primary">View</button>
-          <button type="button" class="btn btn-warning">Add to Busket</button>
-        </div>
-        <small class="text-body-secondary">9 mins</small>
+<div class="card h-100 shadow-sm" *ngIf="product">
+
+  <div class="image position-relative" style="cursor: pointer;">
+      <img src="{{product.pictureUrl}}" alt="{{product.name}}" class="img-fluid bg-info">
+      <div class="d-flex align-items-center justify-content-center hover-overlay">
+          <button (click)="addItemToBasket()" class="btn btn-primary fa fa-shopping-cart me-2"></button>
+          <button routerLink="/shop/{{product.id}}" class="btn btn-primary">View</button>
       </div>
-    </div>
+  </div>
+
+
+  <div class="card-body d-flex flex-column">
+      <a href="" class="text-decoration-none">
+          <h6 class="text-uppercase">
+              {{product.name}}
+          </h6>
+      </a>
+      <span class="mb-2">{{product.price | currency}}</span>
   </div>
 </div>
