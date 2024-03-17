@@ -23,6 +23,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "allowedCommonJsDependencies": [
+              "cuid"
+            ],
             "outputPath": "dist/ecommerce-sports-shop-net-and-angular",
             "index": "src/index.html",
             "browser": "src/main.ts",
@@ -37,6 +40,8 @@
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/font-awesome/css/font-awesome.min.css",
+              "node_modules/font-awesome/css/font-awesome.min.css",
+              "node_modules/bootstrap-icons/font/bootstrap-icons.css",
               "node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "node_modules/bootswatch/dist/united/bootstrap.min.css",
               "node_modules/ngx-toastr/toastr.css",

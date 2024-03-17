@@ -6,12 +6,14 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
-
-
+import { AppBasketSummaryComponent } from './app-basket-summary/app-basket-summary.component';
+import { OrderTotalsComponent } from './order-totals/order-totals.component';
 @NgModule({
   declarations: [
     PagerComponent,
-    PagingHeaderComponent
+    PagingHeaderComponent,
+    AppBasketSummaryComponent,
+    OrderTotalsComponent
   ],
   imports: [
     PaginationModule.forRoot(),
@@ -24,7 +26,9 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     PaginationModule,
     PagerComponent,
     PagingHeaderComponent,
-    CarouselModule
+    CarouselModule,
+    AppBasketSummaryComponent,
+    OrderTotalsComponent
   ]
 
 })
