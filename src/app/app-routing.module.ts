@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home/home.component';
 import { ShopComponent } from './shop/shop.component';
 import { TestErrorComponent } from './core/test-error/test-error.component';
+import { AuthGuard } from './core/Guard/auth.guard.guard';
 
 const routes: Routes = [
  {
@@ -22,18 +23,26 @@ const routes: Routes = [
   {
     path: 'basket',
     loadChildren: () => import('./basket/basket.module').then(mod => mod.BasketModule),
+    canActivate: [AuthGuard],
     data: {breadcrumb: 'Basket'}
+  },
+  {
+    path: 'checkout',
+    loadChildren: () => import('./checkout/checkout.module').then(mod => mod.CheckoutModule),
+    canActivate: [AuthGuard],
+    data: {breadcrumb: 'Checkout'}
+  },
+  {
+    path : 'account',
+    loadChildren: () => import('./account/account.module').then(mod => mod.AccountModule),
+    data: {breadcrumb: "Account"}
   },
   {
     path: '**',
     redirectTo: 'home',
     pathMatch: 'full'
-  },
-  {
-    path: 'checkout',
-    loadChildren: () => import('./checkout/checkout.module').then(mod => mod.CheckoutModule),
-    data: {breadcrumb: 'Checkout'}
   }
+
 ];
 
 @NgModule({
