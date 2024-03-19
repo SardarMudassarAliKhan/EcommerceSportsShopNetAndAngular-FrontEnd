@@ -10,6 +10,8 @@ import { AppBasketSummaryComponent } from './app-basket-summary/app-basket-summa
 import { OrderTotalsComponent } from './order-totals/order-totals.component';
 import { TextInputComponent } from './Components/text-input/text-input.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { StepperComponent } from './Components/stepper/stepper.component';
+import { CdkStepperModule } from '@angular/cdk/stepper';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     PagingHeaderComponent,
     AppBasketSummaryComponent,
     OrderTotalsComponent,
-    TextInputComponent
+    TextInputComponent,
+    StepperComponent
   ],
   imports: [
     PaginationModule.forRoot(),
@@ -26,7 +29,8 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     ReactiveFormsModule,
     FormsModule,
     CarouselModule.forRoot(),
-    BsDropdownModule
+    BsDropdownModule,
+    CdkStepperModule
   ],
   exports: [
     PaginationModule,
@@ -37,6 +41,9 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     OrderTotalsComponent,
     TextInputComponent,
     FormsModule,
+    StepperComponent,
+    CdkStepperModule,
+    AppBasketSummaryComponent
   ]
 
 })
