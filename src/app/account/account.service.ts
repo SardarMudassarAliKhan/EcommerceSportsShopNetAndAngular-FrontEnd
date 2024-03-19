@@ -16,6 +16,7 @@ export class AccountService {
   constructor(private http: HttpClient, private router: Router) { }
 
   loadCurrentUser(token: string | null) {
+    debugger;
     if (token == null) {
       this.currentUserSource.next(null);
       return of(null);
@@ -26,7 +27,9 @@ export class AccountService {
 
     return this.http.get<User>(this.baseUrl + 'account', {headers}).pipe(
       map(user => {
+        debugger
         if (user) {
+          debugger;
           localStorage.setItem('token', user.token);
           this.currentUserSource.next(user);
           return user;
