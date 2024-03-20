@@ -3,7 +3,7 @@ import { Address } from "./User";
 export interface OrderToCreate {
     basketId: string;
     deliveryMethodId: number;
-    shipToAddress: Address;
+    shipToAddress: any;
 }
 
 export interface Order {
